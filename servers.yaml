@@ -1,0 +1,70 @@
+---
+linked_mode: true
+
+subnet: 192.168.34
+
+vms:
+  - name: rancher
+    cpu: 2
+    ram: 2048
+    box: ubuntu/xenial64
+    ip: 10
+    provision:
+      scripts:
+      - name: scripts/pre-req.sh
+      - name: scripts/docker.sh
+      - name: scripts/rancher.sh
+  - name: rke1
+    cpu: 2
+    ram: 2048
+    box: ubuntu/xenial64
+    ip: 11
+    provision:
+      scripts:
+      - name: scripts/pre-req.sh
+      - name: scripts/master.sh
+      - name: scripts/docker.sh
+      - name: scripts/rke.sh
+#  - name: worker1
+#    cpu: 1
+#    ram: 1024
+#    box: ubuntu/xenial64
+#    ip: 11
+#    provision:
+#      scripts:
+#      - name: scripts/pre-req.sh
+#  - name: worker2
+#    cpu: 1
+#    ram: 1024
+#    box: ubuntu/xenial64
+#    ip: 12
+#    provision:
+#      scripts:
+#      - name: scripts/pre-req.sh
+#  - name: ingress
+#    cpu: 1
+#    ram: 1024
+#    box: ubuntu/xenial64
+#    ip: 13
+#    provision:
+#      scripts:
+#      - name: scripts/pre-req.sh
+#  - name: nfs
+#    cpu: 1
+#    ram: 1024
+#    box: ubuntu/xenial64
+#    ip: 14
+#    provision:
+#      scripts:
+#      - name: scripts/pre-req.sh
+#  - name: control
+#    cpu: 1
+#    ram: 1024
+#    box: ubuntu/xenial64
+#    ip: 15
+#    provision:
+#      scripts:
+#      - name: scripts/pre-req.sh
+#      - name: scripts/control.sh
+#      - name: scripts/kismatic.sh
+#
